@@ -7,7 +7,9 @@ npm install workbox-webpack-plugin --save-dev
 npm run build
 npm run serve
 	
-	
+http://127.0.0.1:8000/
+
+
 using webpack
 
 
@@ -42,3 +44,28 @@ https://developer.chrome.com/docs/workbox/modules/workbox-strategies/
 
 https://realfavicongenerator.net/
 Create Icons
+
+Requirements to Install Locally Button
+	Web App not already installed
+	Meet user engagement
+	- engaged with domain for at least
+	30 seconds
+	Valid Web App Manifest
+	- 512x512 and 192x192 icons
+	Valid Service Worker
+	- start_url should work offline
+
+
+Requirements to Install Locally Button
+	Web App not already installed
+	Meet user engagement
+	- engaged with domain for at least
+	30 seconds
+	Valid Web App Manifest
+	- 512x512 and 192x192 icons
+	Valid Service Worker
+	- start_url should work offline
+	
+On Chrome can view PWA installed at url:
+    chrome://apps/
+

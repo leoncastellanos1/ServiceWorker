@@ -12,16 +12,16 @@ http://127.0.0.1:8000/
 
 using webpack
 
+on webpack.config :
+	const WorkboxPlugin = require("workbox-webpack-plugin");
 
-const WorkboxPlugin = require("workbox-webpack-plugin");
-
-      new WorkboxPlugin.InjectManifest({
-        swSrc: "./src-sw.js",
-        swDest: "sw.js"
-      })
+		new WorkboxPlugin.InjectManifest({
+			swSrc: "./src-sw.js",
+			swDest: "sw.js"
+		})
 	  
 	  
-	  https://ng-leontest.firebaseio.com/flights.json
+https://ng-leontest.firebaseio.com/flights.json
 	   npm audit fix --force
 	   npm cache clean --force
 	   
@@ -68,4 +68,19 @@ Requirements to Install Locally Button
 	
 On Chrome can view PWA installed at url:
     chrome://apps/
+
+npm install --save-dev webpack-bundle-analyzer
+
+on webpack.config :
+const BundleAnalyzer = require("webpack-bundle-analyzer");
+
+      new BundleAnalyzer.BundleAnalyzerPlugin({
+        analyzerMode: "static",
+        openAnalyzer: false,
+        reportFilename: "bundle-analyzer.html"
+      }),
+
+
+http://127.0.0.1:5500/dist/bundle-analyzer.html
+
 

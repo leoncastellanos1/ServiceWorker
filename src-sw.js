@@ -4,7 +4,7 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest);
   // /https:\/\/ng\-leontest\.firebaseio\.com\/.*\.json/,
 
 workbox.routing.registerRoute(
-   /https:\/\/pluralsight\-pwa\-scratch\.firebaseio\.com\/.*\.json/,
+  /https:\/\/pluralsight\-pwa\-scratch\.firebaseio\.com\/.*\.json/,
   new workbox.strategies.CacheFirst({
     cacheName: "api-cache",
     plugins: [

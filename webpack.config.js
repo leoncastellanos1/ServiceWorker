@@ -3,10 +3,17 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const WorkboxPlugin = require("workbox-webpack-plugin");
+const BundleAnalyzer = require("webpack-bundle-analyzer");
+
+const performanceConfig = {
+  hints: "warning",
+  maxEntrypointSize: 50000,
+  maxAssetSize: 100000
+};
 
 module.exports = env => {
   const mode = env.mode ? env.mode : "production";
-  
+
   // added to  changing the hash function to one that is not deprecated
   console.log("mode: ", mode);
   const crypto = require("crypto");
@@ -21,7 +28,7 @@ module.exports = env => {
     output: {
       filename: "[name].[chunkhash].js",
       chunkFilename: "[name].[chunkhash].bundle.js",
-      path: path.resolve(__dirname, "dist"),
+      path: path.resolve(__dirname, "dist")
     },
     plugins: [
       new webpack.HashedModuleIdsPlugin(),
@@ -33,6 +40,11 @@ module.exports = env => {
       new CopyPlugin([
         { from: "src/assets/", to: "assets/", ignore: [".DS_Store"] }
       ]),
+      new BundleAnalyzer.BundleAnalyzerPlugin({
+        analyzerMode: "static",
+        openAnalyzer: false,
+        reportFilename: "bundle-analyzer.html"
+      }),
       
       // new CopyPlugin({
       //   patterns: [
@@ -44,6 +56,7 @@ module.exports = env => {
         swDest: "sw.js"
       })
     ],
-    devtool: "source-map"
+    devtool: "source-map",
+    performance: mode === "production" ? performanceConfig : {}
   };
 };

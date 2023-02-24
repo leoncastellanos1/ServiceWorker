@@ -69,6 +69,17 @@ Requirements to Install Locally Button
 On Chrome can view PWA installed at url:
     chrome://apps/
 
+
+//set Top Size Warning
+	const performanceConfig = {
+	hints: "warning",
+	maxEntrypointSize: 50000,
+	maxAssetSize: 100000
+	};
+	
+    performance: mode === "production" ? performanceConfig : {}
+
+
 npm install --save-dev webpack-bundle-analyzer
 
 on webpack.config :
@@ -80,7 +91,7 @@ const BundleAnalyzer = require("webpack-bundle-analyzer");
         reportFilename: "bundle-analyzer.html"
       }),
 
-
+View Map Source Analizer
 http://127.0.0.1:5500/dist/bundle-analyzer.html
 
 
